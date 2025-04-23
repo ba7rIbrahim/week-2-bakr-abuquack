@@ -11,7 +11,7 @@
 
 ### 🔐 **2. Auth & Sessions**
 - [ ] Hash password with `bcrypt`
-- [ ] `POST /signup` — create user
+- [x] `POST /signup` — create user
 - [ ] `POST /login` — check password, generate session ID
 - [ ] `POST /logout` — delete session
 - [ ] Store sessions in DB: `id`, `user_id`, `created_at`, `expires_at`
