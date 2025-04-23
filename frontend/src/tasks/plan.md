@@ -3,19 +3,19 @@ Bet—here’s the **frontend task checklist in flow-of-dev order**, so you code
 ---
 
 ### :bricks: **1. Project Bootstrapping**
-- [ ] Init Vite + React + Tailwind
-- [ ] Setup React Router
-- [ ] Setup React Query client
-- [ ] Setup Zustand stores: `user`, `cart`
+- [X] Init Vite + React + Tailwind
+- [X] Setup React Router
+- [X] Setup React Query client
+- [X] Setup Zustand stores: `user`
 
 ---
 
 ### :closed_lock_with_key: **2. Auth Flow**
-- [ ] Build `/signup` and `/login` pages
-- [ ] Hook up forms to `/signup` and `/login` (with `credentials: 'include'`)
-- [ ] Zustand: store user session data
-- [ ] Auth persistence on page refresh (call `/me` or similar)
-- [ ] Add logout button + handler
+- [X] Build `/signup` and `/login` pages
+- [X] Hook up forms to `/signup` and `/login` (with `credentials: 'include'`)
+- [X] store user session data
+- [X] Auth persistence on page refresh (call `/me` or similar)
+- [X] Add logout button + handler
 
 ---
 
