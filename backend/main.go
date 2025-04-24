@@ -33,7 +33,7 @@ func generateToken(length int) string {
 }
 
 type User struct {
-	ID    int       `json:"id"`
+	ID    int    `json:"id"`
 	Email string `json:"email"`
 }
 
@@ -95,7 +95,7 @@ func main() {
 	CREATE TABLE IF NOT EXISTS users (
 		id INTEGER PRIMARY KEY,
 		email TEXT UNIQUE NOT NULL,
-		password TEXT UNIQUE NOT NULL,
+		password TEXT NOT NULL,
 		created_at INTEGER DEFAULT (strftime('%s', 'now')),
 		updated_at INTEGER DEFAULT (strftime('%s', 'now'))
 	);
@@ -192,9 +192,12 @@ func main() {
 
 		// FINALLY, set cookie
 		http.SetCookie(w, &http.Cookie{
-			Name:    "session",
-			Value:   token,
-			Expires: expires_at,
+			Name:     "session",
+			Value:    token,
+			Expires:  expires_at,
+			HttpOnly: true,
+			Secure:   false,
+			SameSite: http.SameSiteLaxMode,
 		})
 
 		fmt.Fprintf(w, "Great Success!")
@@ -222,7 +225,7 @@ func main() {
 			return
 		}
 
-		err := bcrypt.CompareHashAndPassword([]byte(password), []byte(password))
+		err := bcrypt.CompareHashAndPassword([]byte(password), []byte(request.Password))
 
 		if err != nil {
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
@@ -251,7 +254,6 @@ func main() {
 
 	mux.HandleFunc("/api/me", authMiddleware(func(w http.ResponseWriter, r *http.Request) {
 		user := GetUser(r)
-		log.Println("User: ", r)
 		jsonBytes, err := json.Marshal(map[string]any{
 			"id":    user.ID,
 			"email": user.Email,
