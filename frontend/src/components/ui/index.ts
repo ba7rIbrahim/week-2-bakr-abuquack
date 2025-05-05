@@ -1,6 +1,6 @@
 import { DropdownMenu } from "./drop-down";
-import { Button } from "./button";
-import { Input } from "./input";
-import { PasswordInput } from "./input";
+import { Button } from "./Button";
+import { Input } from "./Input";
+import { PasswordInput } from "./Input";
 
 export { Button, Input, PasswordInput, DropdownMenu }
