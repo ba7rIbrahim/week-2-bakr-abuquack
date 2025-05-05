@@ -149,7 +149,6 @@ export const handlers = [
         'Set-Cookie': 'session=; Path=/; Max-Age=0; HttpOnly',
       }
     })
-
   }),
 
 ]

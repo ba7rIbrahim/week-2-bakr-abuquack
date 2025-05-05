@@ -1,5 +1,5 @@
 import axios from "axios"
-import { LoginFormData, SignupFormData } from "../types/authType"
+import { LoginFormData, SignupFormData } from "../types/auth-type"
 
 axios.defaults.withCredentials = true;
 

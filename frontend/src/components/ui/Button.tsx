@@ -26,12 +26,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const variantClasses = {
-      primary: "bg-black text-white hover:bg-gray-800 focus:ring-black",
+      primary: "bg-primary text-white hover:bg-gray-800 focus:ring-primary",
       secondary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-      danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
+      danger: "bg-danger text-white hover:bg-red-700 focus:ring-red-500",
       outline:
         "bg-transparent border border-gray-300 hover:bg-gray-50 focus:ring-gray-300",
-      ghost: "bg-transparent hover:bg-gray-100 focus:ring-gray-200",
+      ghost: "bg-transparent hover:bg-gray-100 focus:ring-gray-200 px-0 py-0",
     };
 
     const sizeClasses = {
@@ -41,7 +41,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const buttonClasses = `
-      cursor-pointer
       rounded-md
       font-medium
       focus:outline-none

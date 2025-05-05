@@ -1,39 +1,48 @@
+import { ErrorMessage } from "@components/shared/error-message";
 import { Eye, EyeOff } from "lucide-react";
-import React, { forwardRef, useState } from "react";
+import React, { useState } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   containerClassName?: string;
   labelClassName?: string;
   errorClassName?: string;
+  error?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className = "", containerClassName = "", ...props }, ref) => {
-    return (
-      <div className={`mb-4 text-border font-semibold  ${containerClassName}`}>
+export const Input = ({
+  className = "",
+  containerClassName = "",
+  error,
+  ...props
+}: InputProps) => {
+  return (
+    <div className={`mb-4 text-primary font-semibold  ${containerClassName}`}>
+      <div className="flex items-center justify-between">
         <input
-          ref={ref}
-          className={`w-full p-2 border-b border-gray-300 focus:border-black focus:outline-none ${className}`}
+          className={`w-full py-2 px-1 border-b border-border focus:border-primary focus:outline-none  ${className}`}
           {...props}
         />
       </div>
-    );
-  }
-);
+      {error && <ErrorMessage error={error} />}
+    </div>
+  );
+};
 
-export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
-  ({ className = "", containerClassName = "", ...props }, ref) => {
-    const [showPassword, setShowPassword] = useState(false);
+export const PasswordInput = ({
+  className = "",
+  containerClassName = "",
+  error,
+  ...props
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
 
-    return (
-      <div
-        className={`flex items-center justify-between mb-4 text-border font-semibold  ${containerClassName}`}
-      >
+  return (
+    <div className={`mb-4 text-primary font-semibold  ${containerClassName}`}>
+      <div className="flex items-center justify-between">
         <input
           type={showPassword ? "text" : "password"}
-          ref={ref}
-          className={`w-full p-2 border-b border-gray-300 focus:border-black focus:outline-none ${className}`}
+          className={`w-full py-2 px-1 border-b border-border focus:border-primary focus:outline-none ${className}`}
           {...props}
         />
         <button
@@ -42,14 +51,15 @@ export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? (
-            <EyeOff className="text-gray-500 hover:text-gray-700" />
+            <EyeOff className="text-border hover:text-gray-700" />
           ) : (
-            <Eye className="text-gray-500 hover:text-gray-700" />
+            <Eye className="text-border hover:text-gray-700" />
           )}
         </button>
       </div>
-    );
-  }
-);
+      {error && <ErrorMessage error={error} />}
+    </div>
+  );
+};
 
 Input.displayName = "Input";
