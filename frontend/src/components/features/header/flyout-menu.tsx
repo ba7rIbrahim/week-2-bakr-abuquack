@@ -14,7 +14,10 @@ const menuVariants = {
 export const FlyoutMenu = ({ onClose }: { onClose: () => void }) => {
   return (
     <>
-      <div className="fixed inset-0 z-40 bg-black/60" onClick={onClose}></div>
+      <div
+        className="bg-black/60 w-full h-full z-50 fixed left-0 top-0"
+        onClick={onClose}
+      ></div>
 
       <motion.div
         variants={menuVariants}

@@ -6,7 +6,9 @@ export const HeaderLogo = ({ onClose }: { onClose: () => void }) => {
       <button onClick={onClose} className="cursor-pointer">
         <MenuIcon className="md:hidden" strokeWidth={1} />
       </button>
-      <span className="text-primary font-semibold text-xl">3elgant.</span>
+      <span className="text-primary font-semibold text-xl">
+        Bros E-commerce
+      </span>
     </div>
   );
 };
