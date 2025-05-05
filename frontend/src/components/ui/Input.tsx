@@ -62,4 +62,3 @@ export const PasswordInput = ({
   );
 };
 
-Input.displayName = "Input";

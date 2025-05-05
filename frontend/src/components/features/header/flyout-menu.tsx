@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import { X } from "lucide-react";
 import { Button } from "@components/ui";
 import { Link } from "react-router-dom";
-
 import { CardButtons, Logo, SearchInput } from "@components/shared";
 import { navigationLinks } from "src/config/navigation";
 
